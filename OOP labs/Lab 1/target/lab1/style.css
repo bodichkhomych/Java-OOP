@@ -1,0 +1,27 @@
+
+head{
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    max-height: 100%;
+}
+canvas {
+    display: block;
+}
+
+.container-name div {
+    display: inline-block;
+    width: 100px;
+    background-color: #eee;
+}
+
+
+#info{
+    height: 50px;
+}
+
+#image{
+    height: 20vh;
+}
