@@ -1,0 +1,32 @@
+CREATE TABLE clients
+(
+    client_id SERIAL PRIMARY KEY,
+    name      VARCHAR(20),
+    surname   VARCHAR(20),
+    username  VARCHAR(20),
+    password  VARCHAR(20)
+);
+
+CREATE TABLE accounts
+(
+    account_id SERIAL PRIMARY KEY,
+    balance    INT
+);
+
+CREATE TABLE payments
+(
+    payment_id SERIAL PRIMARY KEY,
+    account_id INT REFERENCES accounts (account_id),
+    pay        INT,
+    comment    TEXT
+);
+
+CREATE TABLE cards
+(
+    client_id  INT REFERENCES clients (client_id),
+    account_id INT REFERENCES accounts (account_id),
+    cardname   VARCHAR(20),
+    blocked    BOOLEAN
+);
+
+DROP TABLE clients CASCADE;
