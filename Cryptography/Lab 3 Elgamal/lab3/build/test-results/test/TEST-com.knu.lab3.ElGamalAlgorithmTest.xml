@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.knu.lab3.ElGamalAlgorithmTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-05-24T15:58:30" hostname="DESKTOP-NM17FHJ" time="0.086">
-  <properties/>
-  <testcase name="encodeString" classname="com.knu.lab3.ElGamalAlgorithmTest" time="0.014"/>
-  <testcase name="encodeFile" classname="com.knu.lab3.ElGamalAlgorithmTest" time="0.071"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

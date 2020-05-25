@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.yehorpolishchuk.cryptology.elgamal.PublicKeyTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-04-17T10:31:25" hostname="dellE4300" time="0.001">
+  <properties/>
+  <testcase name="getKeyG" classname="com.yehorpolishchuk.cryptology.elgamal.PublicKeyTest" time="0.0"/>
+  <testcase name="getKeyP" classname="com.yehorpolishchuk.cryptology.elgamal.PublicKeyTest" time="0.0"/>
+  <testcase name="getKeyY" classname="com.yehorpolishchuk.cryptology.elgamal.PublicKeyTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
