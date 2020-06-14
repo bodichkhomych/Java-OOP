@@ -1,5 +1,5 @@
 # Bank 
-Third lab assignment by OOP course. Client can create card, make payment and replenishment, block his card.
+It is my third lab by OOP course. Client can create card, make payment and replenishment, block his card.
 
 ## Table of contents
 * [Clone](#Clone)
@@ -9,7 +9,7 @@ Third lab assignment by OOP course. Client can create card, make payment and rep
 
 ## Clone
 ```
-git clone https://github.com/domaframework/spring-boot-sample.git
+git clone https://https://github.com/bodichkhomych/OOP-Lab3.git
 ```
 
 ## Setup 
@@ -29,7 +29,7 @@ in Lab3/src/main/resources/*.properties change username, password and url on you
 
 ## Technologies
 Project is created with:
-* Java: 8
+* Java: 13.02
 * SpringBoot
 * Spring Security
 * Angular: 9
