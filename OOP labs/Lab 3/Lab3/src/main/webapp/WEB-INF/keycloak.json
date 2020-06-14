@@ -1,0 +1,8 @@
+{
+  "realm": "Lab3_server",
+  "bearer-only": true,
+  "auth-server-url": "http://localhost:8080/auth",
+  "ssl-required": "external",
+  "resource": "Lab3",
+  "use-resource-role-mappings": true
+}

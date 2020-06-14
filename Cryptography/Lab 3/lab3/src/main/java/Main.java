@@ -1,3 +1,5 @@
+package java;
+
 import com.knu.lab3.Encryptor;
 import com.knu.lab3.Key;
 

@@ -1,4 +1,5 @@
-package com.knu.lab3;
+package java.com.knu.lab3;
+
 
 import org.junit.Test;
 

@@ -1,0 +1,24 @@
+<div class="container" fxLayout.gt-sm="row" fxLayout.gt-xs="column" fxLayoutWrap fxLayoutGap="3rem"
+    fxLayoutAlign="center">
+    <div fxLayout="column" fxLayoutGap="1rem">
+        <mat-card id="profile-card">
+            <mat-card-content fxLayout="column" fxLayoutAlign="space-around">
+                <h3>Email: [email]</h3>
+                <h3>Name: [name]</h3>
+                <h3>Surname: [surname]</h3>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card>
+            <button mat-raised-button color="accent" (click)="makePayment()">Make payment</button>
+        </mat-card>
+        <mat-card>
+            <button mat-raised-button color="accent" (click)="replenish()">Replenish account</button>
+        </mat-card>
+    </div>
+
+    <mat-card class="cards">
+
+    </mat-card>
+
+</div>

@@ -1,0 +1,30 @@
+<div class="container" fxFlexLayout="row" fxFlexAlign="space-between">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Payment</mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxFlexLayout="column" fxFlexAlign="center">
+            <form>
+                <mat-form-field class="form-field" fxLayoutAlign="center">
+                    <mat-label>From</mat-label>
+                    <mat-select id="type" class="form-control">
+                        <mat-option>
+                            Card
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="form-field" fxLayoutAlign="center">
+                    <mat-label>To</mat-label>
+                    <input matInput #input maxlength="30" placeholder="Quiz name">
+                </mat-form-field>
+                <mat-form-field class="form-field" fxLayoutAlign="center">
+                    <mat-label>Amount</mat-label>
+                    <input matInput #input maxlength="30" type="number" placeholder="Quiz name">
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="accent">Submit</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

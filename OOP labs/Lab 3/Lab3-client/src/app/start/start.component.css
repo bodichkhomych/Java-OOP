@@ -1,0 +1,13 @@
+button {
+    width: 30em;
+    margin: 1em;
+}
+
+mat-card-content {
+    align-items: center;
+}
+
+.container {
+    margin: 1em;
+    padding: 1em;
+}

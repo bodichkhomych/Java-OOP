@@ -1,4 +1,4 @@
-package CryptologyAlgths1;
+package com.univ.crypto.lab1;
 
 import java.math.BigInteger;
 import java.util.Random;

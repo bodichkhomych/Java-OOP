@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="1" author="postgres">
+        <sql>CREATE TYPE role_type AS ENUM ('USER','ADMIN')</sql>
+
+        <createTable tableName="users">
+            <column name="id" autoIncrement="true" type="INTEGER">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(50)" defaultValue="John">
+                <constraints nullable="false"/>
+            </column>
+            <column name="surname" type="VARCHAR(50)"/>
+            <column name="role" type="role_type" defaultValue="USER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="accounts">
+            <column name="id" autoIncrement="true" type="INTEGER">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="balance" type="INTEGER" defaultValue="0"/>
+            <column name="blocked" type="BOOLEAN" defaultValue="false"/>
+        </createTable>
+
+        <createTable tableName="cards">
+            <column name="card_number" type="VARCHAR(16)">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="INTEGER">
+                <constraints foreignKeyName="fk_user_id" referencedTableName="users" referencedColumnNames="id"/>
+            </column>
+            <column name="account_id" type="INTEGER">
+                <constraints foreignKeyName="fk_account_id" referencedTableName="accounts" referencedColumnNames="id"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="payments">
+            <column name="id" autoIncrement="true" type="INTEGER">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="card_from" type="VARCHAR(16)">
+                <constraints foreignKeyName="fk_card_id_from" referencedTableName="cards" referencedColumnNames="card_number"/>
+            </column>
+            <column name="card_to" type="VARCHAR(16)">
+                <constraints foreignKeyName="fk_card_id_to" referencedTableName="cards" referencedColumnNames="card_number"/>
+            </column>
+            <column name="amount" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <rollback>
+            <sql>DROP TYPE role_type CASCADE</sql>
+            <dropTable tableName="users" cascadeConstraints="true"/>
+            <dropTable tableName="accounts" cascadeConstraints="true"/>
+            <dropTable tableName="cards" cascadeConstraints="true"/>
+            <dropTable tableName="payments" cascadeConstraints="true"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

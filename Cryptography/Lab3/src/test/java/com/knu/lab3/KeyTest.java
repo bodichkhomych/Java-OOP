@@ -1,0 +1,70 @@
+package com.knu.lab3;
+
+import org.junit.Test;
+
+import java.math.BigInteger;
+
+import static org.junit.Assert.*;
+
+public class KeyTest {
+
+    @Test
+    public void pKeyBitLength() throws Exception {
+        Key key1 = Key.generateKey(4);
+        Key key2 = Key.generateKey(10);
+        Key key3 = Key.generateKey(16);
+        Key key4 = Key.generateKey(20);
+
+        assertEquals(4, key1.getPublicKey().getKeyP().bitLength());
+        assertEquals(10, key2.getPublicKey().getKeyP().bitLength());
+        assertEquals(16, key3.getPublicKey().getKeyP().bitLength());
+        assertEquals(20, key4.getPublicKey().getKeyP().bitLength());
+    }
+
+    @Test
+    public void xLessThanP() throws Exception {
+        Key key1 = Key.generateKey(4);
+        Key key2 = Key.generateKey(10);
+        Key key3 = Key.generateKey(16);
+        Key key4 = Key.generateKey(20);
+
+        assertEquals(-1, key1.getPrivateKey().getKey().compareTo(key1.getPublicKey().getKeyP()));
+        assertEquals(-1, key2.getPrivateKey().getKey().compareTo(key2.getPublicKey().getKeyP()));
+        assertEquals(-1, key3.getPrivateKey().getKey().compareTo(key3.getPublicKey().getKeyP()));
+        assertEquals(-1, key4.getPrivateKey().getKey().compareTo(key4.getPublicKey().getKeyP()));
+    }
+
+    @Test
+    public void gLessThanP() throws Exception {
+        Key key1 = Key.generateKey(4);
+        Key key2 = Key.generateKey(10);
+        Key key3 = Key.generateKey(16);
+        Key key4 = Key.generateKey(20);
+
+        assertEquals(-1, key1.getPublicKey().getKeyG().compareTo(key1.getPublicKey().getKeyP()));
+        assertEquals(-1, key2.getPublicKey().getKeyG().compareTo(key2.getPublicKey().getKeyP()));
+        assertEquals(-1, key3.getPublicKey().getKeyG().compareTo(key3.getPublicKey().getKeyP()));
+        assertEquals(-1, key4.getPublicKey().getKeyG().compareTo(key4.getPublicKey().getKeyP()));
+
+    }
+
+    @Test
+    public void gPrimitiveRootModuloP() throws Exception {
+        Key[] keys = new Key[]{
+            Key.generateKey(4),
+            Key.generateKey(10),
+            Key.generateKey(16),
+            Key.generateKey(20)
+        };
+
+        for (int j = 0; j < 4; j++){
+            BigInteger i = BigInteger.ONE;
+            BigInteger product = BigInteger.ONE;
+            for (; i.compareTo(keys[j].getPublicKey().getKeyP().subtract(BigInteger.ONE)) <= 0; i = i.add(BigInteger.ONE)){
+                product = product.multiply(keys[j].getPublicKey().getKeyG());
+            }
+
+            assertTrue(product.mod(keys[j].getPublicKey().getKeyP()).compareTo(BigInteger.ONE) == 0);
+        }
+    }
+}

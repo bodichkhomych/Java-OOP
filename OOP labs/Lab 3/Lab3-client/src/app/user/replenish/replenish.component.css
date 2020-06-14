@@ -1,0 +1,7 @@
+.container {
+    margin: 3em 30%;
+}
+
+mat-card {
+    text-align: end;
+}
